@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      overflow-y: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .bottom-sheet-wrap {
+      background: #efefef;
+      width: 100%;
+    }
+    .open {
+      display: block;
+      width: 100%;
+      height: 20px;
+      background: #999;
+    }
+
+    .bottom-sheet-wrap {
+      position: fixed;
+      bottom: -170px;
+      transition: 300ms;
+    }
+    .bottom-sheet-wrap.on {
+      bottom: 0;
+    }
+  </style>
+
+  <script>
+    var fullPopup = {
+      init: function () {
+        this.open()
+        this.close()
+      },
+      open: function () {
+        $('.open').on('click', function () {
+          $(this).parents('.bottom-sheet-wrap').toggleClass('on').fadeIn()
+        })
+      },
+      close: function () {
+        $('.close').on('click', function () {
+          if (!$(this).hasClass('open')) {
+            $(this).parents('.bottom-sheet-wrap').removeClass('on').fadeOut()
+          }
+        })
+      },
+    }
+
+    var certPop = {
+      open: function () {
+        $('html').addClass('cert-open')
+      },
+      close: function () {
+        $('html').removeClass('cert-open')
+      },
+    }
+
+    $(document).ready(function () {
+      fullPopup.init()
+      certPop.open()
+    })
+  </script>
+
+  <body>
+    <div class="wrap">
+      <div class="bottom-sheet-wrap">
+        <a class="open">버튼</a>
+        아싸
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>
