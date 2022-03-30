@@ -42,12 +42,12 @@
         this.close()
       },
       open: function () {
-        $('.open').on('click', function () {
+        $('.open').on('touchstart', function () {
           $(this).parents('.bottom-sheet-wrap').toggleClass('on').fadeIn()
         })
       },
       close: function () {
-        $('.close').on('click', function () {
+        $('.close').on('touchstart', function () {
           if (!$(this).hasClass('open')) {
             $(this).parents('.bottom-sheet-wrap').removeClass('on').fadeOut()
           }
